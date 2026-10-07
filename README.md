@@ -129,13 +129,29 @@ transfer title. Full account: <https://sigelith.org/spec/#incident-2026-09>.
    and verify it against the roots in the files from here, not against the roots echoed by
    the API.
 
+## Bank anchors
+
+A bank anchor is a transfer at a regulated bank whose title is the `MROOT` line of a closed
+week. The bank, the reference number and the booking date are published in the weekly
+checkpoints here and at <https://sigelith.org/proof/#anchors>. Unlike Bitcoin, the bank's
+record is not open to everyone: on request we hand the holder of a proof the bank's
+confirmation for that root, and the bank can confirm it directly to a court. Bitcoin, the
+checkpoints in this repository and the public archives can be checked by anyone, without
+us; a bank anchor adds a record kept by a third party, not a check anyone can run alone.
+
+## Weeks without entries
+
+A week without a single entry has no weekly root and no weekly dump, so there is nothing to
+anchor for it — so far only 2026-W28. The hash chain and the global tree are unaffected:
+`seq` simply continues with the next entry.
+
 ## What a checkpoint proves, and what it does not
 
 A checkpoint proves that Sigelith was presented with each fingerprint no later than the time
 it was recorded, and that the record has not changed since. It does not prove authorship, the
 truth of any content, or that anything happened. Sigelith is not a qualified trust service
-provider under eIDAS. The claim is narrower and checkable: verifiable without trusting anyone,
-including us.
+provider under eIDAS. The claim is narrower and checkable: verifiable without taking our
+word for it.
 
 ## License
 
